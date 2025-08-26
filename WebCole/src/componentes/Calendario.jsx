@@ -70,24 +70,60 @@ function Calendario(){
   const weekDayNames = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
 
   return (
-    <div style={{padding:"20px", maxWidth:"900px", margin:"0 auto"}}>
-      <div style={{display:"flex", justifyContent:"space-between", marginBottom:"10px"}}>
-        <button onClick={()=>setCursor(addMonths(cursor,-1))}>{"<"}</button>
-        <h2>{monthName}</h2>
-        <button onClick={()=>setCursor(addMonths(cursor,1))}>{">"}</button>
+    <div style={{padding:"20px", maxWidth:"900px", margin:"0 auto", background:"#C7F5F3", borderRadius:"10px"}}>
+      <div style={{display:"flex", justifyContent:"space-between", marginBottom:"10px", alignItems:"center"}}>
+        <button 
+          onClick={()=>setCursor(addMonths(cursor,-1))} 
+          style={{background:"#3176F5", color:"white", border:"none", padding:"5px 10px", borderRadius:"5px"}}
+        >{"<"}</button>
+        <h2 style={{color:"#3176F5"}}>{monthName}</h2>
+        <button 
+          onClick={()=>setCursor(addMonths(cursor,1))} 
+          style={{background:"#3176F5", color:"white", border:"none", padding:"5px 10px", borderRadius:"5px"}}
+        >{">"}</button>
       </div>
 
       <div style={{display:"grid", gridTemplateColumns:"repeat(7, 1fr)", border:"1px solid #ccc"}}>
         {weekDayNames.map((d) => (
-          <div key={d} style={{padding:"5px", background:"#f3f3f3", textAlign:"center", fontWeight:"bold"}}>{d}</div>
+          <div 
+            key={d} 
+            style={{
+              padding:"5px", 
+              background:"#88C5F4", 
+              textAlign:"center", 
+              fontWeight:"bold", 
+              color:"#fff"
+            }}
+          >
+            {d}
+          </div>
         ))}
         {grid.flat().map((date, idx) => {
           const inMonth = date.getMonth() === cursor.getMonth();
           const isToday = isSameDay(date, new Date());
+          const isSelected = selectedDate && isSameDay(date, selectedDate);
           const dayEvents = eventsOn(date);
+
           return (
-            <div key={idx} style={{minHeight:"100px", padding:"5px", border:"1px solid #eee", background: inMonth?"white":"#f9f9f9"}} onClick={()=>setSelectedDate(date)}>
-              <div style={{fontWeight:isToday?"bold":"normal"}}>{date.getDate()}</div>
+            <div 
+              key={idx} 
+              style={{
+                minHeight:"100px",
+                padding:"5px",
+                border:"1px solid #eee",
+                background: isSelected
+                  ? "#A9F5CF"
+                  : isToday
+                    ? "#71F5CE"
+                    : inMonth
+                      ? "white"
+                      : "#f9f9f9",
+                cursor: "pointer",
+                transition: "background 0.3s",
+              }}
+              onClick={()=>setSelectedDate(date)}
+            >
+              <div style={{fontWeight: isToday ? "bold" : "normal"}}>{date.getDate()}</div>
               <ul style={{fontSize:"12px", marginTop:"5px"}}>
                 {dayEvents.map(ev => (
                   <li key={ev.id}>{ev.title}</li>
@@ -99,14 +135,36 @@ function Calendario(){
       </div>
 
       {selectedDate && (
-        <div style={{marginTop:"20px", border:"1px solid #ddd", padding:"10px"}}>
-          <h3>Agregar evento para {selectedDate.toLocaleDateString()}</h3>
-          <input value={newEvent} onChange={e=>setNewEvent(e.target.value)} placeholder="Título del evento"/>
-          <button onClick={addEvent}>Guardar</button>
+        <div style={{marginTop:"20px", border:"1px solid #ddd", padding:"10px", background:"#fefefe", borderRadius:"8px"}}>
+          <h3 style={{color:"#3176F5"}}>Agregar evento para {selectedDate.toLocaleDateString()}</h3>
+          <input 
+            value={newEvent} 
+            onChange={e=>setNewEvent(e.target.value)} 
+            placeholder="Título del evento" 
+            style={{
+              padding:"8px",
+              borderRadius:"4px",
+              border:"1px solid #ccc",
+              marginRight:"10px",
+              width:"60%"
+            }}
+          />
+          <button 
+            onClick={addEvent}
+            style={{
+              background:"#3176F5", 
+              color:"white", 
+              border:"none", 
+              padding:"8px 12px", 
+              borderRadius:"5px"
+            }}
+          >
+            Guardar
+          </button>
         </div>
       )}
     </div>
   );
 }
 
-export default Calendario
+export default Calendario;
