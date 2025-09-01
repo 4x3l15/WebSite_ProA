@@ -5,7 +5,7 @@ function MainContent() {
   return (
     <main
       style={{
-        background: "#C7F5F3",       // Fondo celeste claro
+        background: "#93c5fd",       // Fondo celeste claro
         padding: "40px 20px",
         minHeight: "100vh"
       }}
@@ -18,7 +18,7 @@ function MainContent() {
       >
         <h2
           style={{
-            color: "#3176F5",         // Azul fuerte para el título
+            color: "#13265a",         // Azul fuerte para el título
             marginBottom: "10px"
           }}
         >
@@ -27,7 +27,7 @@ function MainContent() {
 
         <p
           style={{
-            color: "#88C5F4",         // Azul cielo para texto secundario
+            color: "#13265a",         // Azul cielo para texto secundario
             marginBottom: "30px"
           }}
         >

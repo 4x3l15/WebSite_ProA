@@ -70,16 +70,16 @@ function Calendario(){
   const weekDayNames = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
 
   return (
-    <div style={{padding:"20px", maxWidth:"900px", margin:"0 auto", background:"#C7F5F3", borderRadius:"10px"}}>
+    <div style={{padding:"20px", maxWidth:"900px", margin:"0 auto", background:"#7793e1", borderRadius:"10px"}}>
       <div style={{display:"flex", justifyContent:"space-between", marginBottom:"10px", alignItems:"center"}}>
         <button 
           onClick={()=>setCursor(addMonths(cursor,-1))} 
-          style={{background:"#3176F5", color:"white", border:"none", padding:"5px 10px", borderRadius:"5px"}}
+          style={{background:"#b8c6ef", color:"white", border:"none", padding:"5px 10px", borderRadius:"5px"}}
         >{"<"}</button>
-        <h2 style={{color:"#3176F5"}}>{monthName}</h2>
+        <h2 style={{color:"#0c1839"}}>{monthName}</h2>
         <button 
           onClick={()=>setCursor(addMonths(cursor,1))} 
-          style={{background:"#3176F5", color:"white", border:"none", padding:"5px 10px", borderRadius:"5px"}}
+          style={{background:"#b8c6ef", color:"white", border:"none", padding:"5px 10px", borderRadius:"5px"}}
         >{">"}</button>
       </div>
 
@@ -89,7 +89,7 @@ function Calendario(){
             key={d} 
             style={{
               padding:"5px", 
-              background:"#88C5F4", 
+              background:"#b8c6ef", 
               textAlign:"center", 
               fontWeight:"bold", 
               color:"#fff"
@@ -112,9 +112,9 @@ function Calendario(){
                 padding:"5px",
                 border:"1px solid #eee",
                 background: isSelected
-                  ? "#A9F5CF"
+                  ? "#b8c6efF"
                   : isToday
-                    ? "#71F5CE"
+                    ? "#b8c6ef"
                     : inMonth
                       ? "white"
                       : "#f9f9f9",
@@ -135,7 +135,7 @@ function Calendario(){
       </div>
 
       {selectedDate && (
-        <div style={{marginTop:"20px", border:"1px solid #ddd", padding:"10px", background:"#fefefe", borderRadius:"8px"}}>
+        <div style={{marginTop:"20px", border:"1px solid #ddd", padding:"10px", background:"#b8c6ef", borderRadius:"8px"}}>
           <h3 style={{color:"#3176F5"}}>Agregar evento para {selectedDate.toLocaleDateString()}</h3>
           <input 
             value={newEvent} 
