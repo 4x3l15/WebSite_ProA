@@ -2,7 +2,11 @@ import React from "react";
 
 function Jumbotron() {
   return (
+<<<<<<< HEAD
     <header style={{ background: "#93c5fd", padding: "3rem 1rem", marginBottom: "2rem" }}>
+=======
+    <header style={{ background: "#C7F5F3", padding: "3rem 1rem", marginBottom: "2rem" }}>
+>>>>>>> f10812dd984d3dca892a9800520891013404bff4
       <div style={{ maxWidth: "960px", margin: "0 auto", padding: "2rem 1rem" }}>
         <h1 style={{ fontSize: "3rem", fontWeight: "bold", color: "#3176F5", marginBottom: "1rem" }}>
           Bienvenido a Website PROA

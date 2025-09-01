@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../assets/logo.png";
 
 function Navbar() {
   return (
@@ -20,14 +21,12 @@ function Navbar() {
             alignItems: "center"
           }}
         >
-          <img
-            src="/docs/5.3/assets/brand/bootstrap-logo.svg"
-            alt="Logo"
-            width="30"
-            height="24"
-            style={{ marginRight: "10px" }}
-          />
-          website_proa
+          <img src={logo}
+          alt="Logo"
+          width="190"
+          height="110"
+          style={{ marginRight: "10px" }} />
+          <h1>web site</h1>
         </a>
       </div>
     </nav>
