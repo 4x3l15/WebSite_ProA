@@ -8,6 +8,8 @@ function Navbar() {
       <div className="nav-links">
         <a href="#">Calendario</a>
         <a href="#">Ubicación</a>
+        <a href="#">Tareas</a>
+        <a href="#">Iniciar seccion</a>
       </div>
     </nav>
   );
