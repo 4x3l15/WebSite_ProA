@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./Info.css";
 import "../App.css"; 
 import Carrusel from "./Carrusel"
 

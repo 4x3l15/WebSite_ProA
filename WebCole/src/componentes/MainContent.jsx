@@ -1,113 +1,21 @@
-import React, { useEffect, useState } from "react";
-import Calendario from "./Calendario";
+import React, { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
 function MainContent() {
-  const [items, setItems] = useState([]);
-  const [nombre, setNombre] = useState("");
-  const [descripcion, setDescripcion] = useState("");
-
-  // Cargar datos desde el backend
-  useEffect(() => {
-    fetch("http://localhost:5000/api/items")
-      .then((res) => res.json())
-      .then((data) => setItems(data));
-  }, []);
-
-  // Agregar nuevo item
-  const agregarItem = async () => {
-    if (nombre.trim() === "" || descripcion.trim() === "") return;
-    await fetch("http://localhost:5000/api/items", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nombre, descripcion }),
-    });
-    setNombre("");
-    setDescripcion("");
-    actualizarLista();
-  };
-
-  // Actualizar lista desde el backend
-  const actualizarLista = async () => {
-    const nuevaLista = await fetch("http://localhost:5000/api/items").then((res) =>
-      res.json()
-    );
-    setItems(nuevaLista);
-  };
+  const { usuario } = useContext(UserContext);
 
   return (
-    <main>
-      <div
-        style={{
-          maxWidth: "900px",
-          margin: "0 auto",
-        }}
-      >
-        <h2>
-          Contenido principal
-        </h2>
-
-        <p>
-          Aquí puedes agregar tu contenido.
-        </p>
-
-        {/* Calendario */}
-        <Calendario />
-
-        {/* CRUD para Items */}
-        <section >
-          <h3 style={{ color: "#3176F5", marginBottom: "20px" }}>Lista de Ítems</h3>
-          <div style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
-            <input
-              type="text"
-              placeholder="Nombre"
-              value={nombre}
-              onChange={(e) => setNombre(e.target.value)}
-              style={{
-                flex: 1,
-                padding: "10px",
-                border: "1px solid #ccc",
-                borderRadius: "5px",
-              }}
-            />
-            <input
-              type="text"
-              placeholder="Descripción"
-              value={descripcion}
-              onChange={(e) => setDescripcion(e.target.value)}
-              style={{
-                flex: 1,
-                padding: "10px",
-                border: "1px solid #ccc",
-                borderRadius: "5px",
-              }}
-            />
-            <button
-              onClick={agregarItem}
-            >
-              Agregar
-            </button>
-          </div>
-
-          <ul >
-            {items.map((item) => (
-              <li
-                key={item._id}
-                style={{
-                  padding: "10px",
-                  background: "#f1f1f1",
-                  borderRadius: "5px",
-                  marginBottom: "10px",
-                }}
-              >
-                <strong>{item.nombre}</strong> - {item.descripcion}
-              </li>
-            ))}
-          </ul>
-        </section>
+    <main className="main-content">
+      <div className="main-box">
+        <h2>Contenido principal</h2>
+        {usuario ? (
+          <p className="saludo">👋 Hola, {usuario}</p>
+        ) : (
+          <p className="texto-secundario">Aquí puedes agregar tu contenido.</p>
+        )}
       </div>
     </main>
   );
 }
 
 export default MainContent;
-

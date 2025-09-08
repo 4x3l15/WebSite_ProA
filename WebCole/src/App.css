@@ -264,3 +264,130 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* === Login Page === */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #3176F5, #1e3a8a);
+  font-family: Arial, sans-serif;
+}
+
+.login-box {
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  color: #1e3a8a;
+  font-size: 24px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.login-input:focus {
+  border-color: #3176F5;
+}
+
+.login-btn {
+  width: 100%;
+  background: #3176F5;
+  color: white;
+  border: none;
+  padding: 12px;
+  margin-top: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-btn:hover {
+  background: #1e3a8a;
+}
+
+/* Link para cambiar entre login/registro */
+.login-box p {
+  font-size: 14px;
+  color: #1e3a8a;
+}
+
+.login-box p:hover {
+  text-decoration: underline;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* App.css */
+
+/* Sección de tareas */
+.tareas-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tareas-header {
+  color: #3176F5;
+  margin-bottom: 20px;
+}
+
+.tareas-inputs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tareas-inputs input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.tareas-inputs button {
+  background: #3176F5;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.tareas-inputs button:hover {
+  background: #1e3a8a;
+}
+
+.tareas-list li {
+  padding: 10px;
+  background: #f1f1f1;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
