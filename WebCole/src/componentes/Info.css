@@ -1,0 +1,104 @@
+/* Fondo de la sección */
+.info-fondo {
+    padding: 3rem 1rem;
+    background: linear-gradient(135deg, #bac8e6, #4332d6);
+    text-align: center;
+    min-height: 100vh;
+  }
+  
+  /* Caja inicial */
+  .info-caja {
+    background: #ffffffdd;
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  
+  /* Título */
+  .info-titulo {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  /* Botón abrir */
+  .info-boton {
+    background: #6200ea;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+  }
+  .info-boton:hover {
+    background: #3700b3;
+  }
+  
+  /* Overlay oscuro */
+  .info-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Modal */
+  .info-modal {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 90%;
+    max-width: 700px;
+    max-height: 80vh; /* 👈 límite de altura */
+    overflow-y: auto; /* 👈 scroll interno */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    text-align: left;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  /* Título modal */
+  .info-modal-titulo {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #222;
+  }
+  
+  /* Texto modal */
+  .info-modal-texto {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Botón cerrar */
+  .info-boton-cerrar {
+    background: #e53935;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .info-boton-cerrar:hover {
+    background: #b71c1c;
+  }
+  
+  /* Animación entrada */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
