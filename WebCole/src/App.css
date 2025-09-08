@@ -191,3 +191,73 @@
 .footer p {
   margin: 0;
 }
+
+/* Navbar contenedor */
+.navbar-custom {
+  display: flex;
+  justify-content: space-between; /* logo a la izquierda, links a la derecha */
+  align-items: center;
+  padding: 15px 30px;
+  background: #1e3a8a;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo del título (NO botón) */
+.navbar-brand {
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  cursor: default; /* no parece clickeable */
+}
+
+/* Contenedor de los botones */
+.nav-links {
+  display: flex;
+  gap: 15px; /* separación entre botones */
+}
+
+/* Estilo de botones */
+.nav-links a {
+  padding: 8px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Hover animado */
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Sección del mapa */
+.mapa-section {
+  background: #93c5fd; /* color de fondo */
+  padding: 50px 0;
+}
+
+/* Contenedor del título */
+.mapa-section h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #1e3a8a; /* azul oscuro para contraste */
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Ajustes del iframe */
+.mapa-iframe {
+  border: 0;
+  border-radius: 12px;
+  width: 100%;
+  height: 500px; /* altura fija para que se vea bien */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+

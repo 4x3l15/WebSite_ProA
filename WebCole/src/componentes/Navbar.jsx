@@ -4,15 +4,11 @@ import "../App.css";
 function Navbar() {
   return (
     <nav className="navbar-custom">
-      <a className="navbar-brand" href="#">
-        Website PROA
-      </a>
-      <a href="#" role="button" >
-          Calendario
-      </a>
-      <a href="#" role="button" >
-          Ubicacion
-      </a>
+      <span className="navbar-brand">Website PROA</span>
+      <div className="nav-links">
+        <a href="#">Calendario</a>
+        <a href="#">Ubicación</a>
+      </div>
     </nav>
   );
 }
