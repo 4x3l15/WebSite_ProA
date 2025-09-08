@@ -2,37 +2,19 @@ import React from "react";
 
 function Jumbotron() {
   return (
-<<<<<<< HEAD
-    <header style={{ background: "#93c5fd", padding: "3rem 1rem", marginBottom: "2rem" }}>
-=======
-    <header style={{ background: "#C7F5F3", padding: "3rem 1rem", marginBottom: "2rem" }}>
->>>>>>> f10812dd984d3dca892a9800520891013404bff4
-      <div style={{ maxWidth: "960px", margin: "0 auto", padding: "2rem 1rem" }}>
-        <h1 style={{ fontSize: "3rem", fontWeight: "bold", color: "#3176F5", marginBottom: "1rem" }}>
+      <div>
+        <h1>
           Bienvenido a Website PROA
         </h1>
-        <p style={{ fontSize: "1.25rem", color: "#1e3a8a", marginBottom: "2rem" }}>
+        <p >
+          Tu espacio para aprender, explorar y crear 🚀
         </p>
-        <a 
-          href="#" 
-          role="button"
-          style={{
-            backgroundColor: "#3176F5",
-            color: "#FFFFFF",
-            padding: "0.75rem 1.5rem",
-            fontSize: "1.25rem",
-            borderRadius: "0.3rem",
-            textDecoration: "none",
-            transition: "background-color 0.3s"
-          }}
-          onMouseOver={(e) => e.target.style.backgroundColor = "#1e3a8a"}
-          onMouseOut={(e) => e.target.style.backgroundColor = "#1e3a8a"}
-        >
+        <a>
           Comenzar
         </a>
       </div>
-    </header>
   );
 }
 
 export default Jumbotron;
+

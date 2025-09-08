@@ -35,48 +35,18 @@ function MainContent() {
   };
 
   return (
-    <main
-      style={{
-<<<<<<< HEAD
-        background: "#93c5fd",       // Fondo celeste claro
-=======
-        background: "#C7F5F3", // Fondo celeste claro
->>>>>>> f10812dd984d3dca892a9800520891013404bff4
-        padding: "40px 20px",
-        minHeight: "100vh",
-      }}
-    >
+    <main>
       <div
         style={{
           maxWidth: "900px",
           margin: "0 auto",
         }}
       >
-        <h2
-          style={{
-<<<<<<< HEAD
-            color: "#13265a",         // Azul fuerte para el título
-            marginBottom: "10px"
-=======
-            color: "#3176F5", // Azul fuerte para el título
-            marginBottom: "10px",
->>>>>>> f10812dd984d3dca892a9800520891013404bff4
-          }}
-        >
+        <h2>
           Contenido principal
         </h2>
 
-        <p
-          style={{
-<<<<<<< HEAD
-            color: "#13265a",         // Azul cielo para texto secundario
-            marginBottom: "30px"
-=======
-            color: "#88C5F4", // Azul cielo para texto secundario
-            marginBottom: "30px",
->>>>>>> f10812dd984d3dca892a9800520891013404bff4
-          }}
-        >
+        <p>
           Aquí puedes agregar tu contenido.
         </p>
 

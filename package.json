@@ -1,5 +1,24 @@
 {
   "dependencies": {
     "bootstrap": "^5.3.8"
-  }
+  },
+  "name": "website_proa",
+  "version": "1.0.0",
+  "description": "programacion 4",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4x3l15/WebSite_ProA.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/4x3l15/WebSite_ProA/issues"
+  },
+  "homepage": "https://github.com/4x3l15/WebSite_ProA#readme",
+  "keywords": []
 }
