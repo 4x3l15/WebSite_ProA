@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import itemsRoutes from "./routes/items.js";
+import eventsRoutes from "./routes/events.js";  // 👈 agregar
 
 const app = express();
 app.use(cors());
@@ -17,6 +18,7 @@ mongoose.connect("mongodb+srv://mayra:2007@cluster0.1vf4jed.mongodb.net/test", {
 
 // Usar las rutas
 app.use("/api/items", itemsRoutes);
+app.use("/api/events", eventsRoutes);  // 👈 nueva ruta para el calendario
 
 // Puerto
 const PORT = 5000;
