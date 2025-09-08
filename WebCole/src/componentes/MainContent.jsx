@@ -54,15 +54,7 @@ function MainContent() {
         <Calendario />
 
         {/* CRUD para Items */}
-        <section
-          style={{
-            marginTop: "40px",
-            padding: "20px",
-            background: "#fff",
-            borderRadius: "10px",
-            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-          }}
-        >
+        <section >
           <h3 style={{ color: "#3176F5", marginBottom: "20px" }}>Lista de Ítems</h3>
           <div style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
             <input
@@ -91,20 +83,12 @@ function MainContent() {
             />
             <button
               onClick={agregarItem}
-              style={{
-                background: "#3176F5",
-                color: "#fff",
-                border: "none",
-                padding: "10px 20px",
-                borderRadius: "5px",
-                cursor: "pointer",
-              }}
             >
               Agregar
             </button>
           </div>
 
-          <ul style={{ listStyle: "none", padding: 0 }}>
+          <ul >
             {items.map((item) => (
               <li
                 key={item._id}
