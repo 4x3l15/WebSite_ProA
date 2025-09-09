@@ -7,10 +7,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./componentes/Navbar";
 import Footer from "./componentes/Footer";
-import Jumbotron from "./componentes/Jumbotron";
 import MainContent from "./componentes/MainContent";
 import Tareas from "./componentes/Tareas";
 import InicioSesion from "./componentes/InicioSesion";
+import Mapa from "./componentes/Mapa"
+import Calendario from "./componentes/Calendario"
 
 function App() {
   return (
@@ -21,13 +22,14 @@ function App() {
           path="/"
           element={
             <>
-              <Jumbotron />
               <MainContent />
             </>
           }
         />
         <Route path="/tareas" element={<Tareas />} />
         <Route path="/login" element={<InicioSesion />} />
+        <Route path="/ubicacion" element={<Mapa />} />
+        <Route path="/calendario" element={<Calendario />} />
       </Routes>
       <Footer />
     </Router>

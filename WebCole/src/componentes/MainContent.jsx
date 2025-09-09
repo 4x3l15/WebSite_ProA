@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { UserContext } from "../context/UserContext";
+import Jumbotron from "./Jumbotron";
 
 function MainContent() {
   const { usuario } = useContext(UserContext);
@@ -13,6 +14,7 @@ function MainContent() {
         ) : (
           <p className="texto-secundario">Aquí puedes agregar tu contenido.</p>
         )}
+        <Jumbotron/>
       </div>
     </main>
   );
