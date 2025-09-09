@@ -1,8 +1,10 @@
 import React from "react";
 import "../App.css";
+import Contacto from "./Contacto"
 
 function Mapa() {
   return (
+    <div>
     <div className="mapa-section">
       <div className="container">
         <h1>Ubicación del colegio</h1>
@@ -15,6 +17,8 @@ function Mapa() {
           title="Mapa Colegio"
         ></iframe>
       </div>
+    </div>
+        <Contacto/>
     </div>
   );
 }
