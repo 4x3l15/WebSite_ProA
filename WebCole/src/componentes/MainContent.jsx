@@ -8,11 +8,10 @@ function MainContent() {
   return (
     <main className="main-content">
       <div className="main-box">
-        <h2>Contenido principal</h2>
         {usuario ? (
           <p className="saludo">👋 Hola, {usuario}</p>
         ) : (
-          <p className="texto-secundario">Aquí puedes agregar tu contenido.</p>
+          <p className="texto-secundario"></p>
         )}
         <Jumbotron/>
       </div>

@@ -103,7 +103,7 @@
 }
 
 
-  /* ================= NAVBAR ================= */
+/* ================= NAVBAR ================= */
 .navbar-custom {
   background-color: #1e3a8a;
   padding: 1rem;
@@ -163,9 +163,10 @@
 
 /* ================= MAIN CONTENT ================= */
 .main-content {
-  background: #c7f5f3;
+  background: #ffffff;
   padding: 40px 20px;
   min-height: 100vh;
+  flex: 1; /* 👈 para que empuje el footer al final */
 }
 
 .main-inner {
@@ -184,16 +185,18 @@
 }
 
 /* ================= FOOTER ================= */
+/* FOOTER */
 .footer {
-  background-color: #1e3a8a;
+  background: #1e3a8a;
   color: white;
-  padding: 1rem;
+  padding: 20px;
   text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
 
-.footer p {
-  margin: 0;
-}
 
 /* Navbar contenedor */
 .navbar-custom {
