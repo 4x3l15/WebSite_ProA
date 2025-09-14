@@ -12,7 +12,6 @@ import Tareas from "./componentes/Tareas";
 import InicioSesion from "./componentes/InicioSesion";
 import Mapa from "./componentes/Mapa"
 import Calendario from "./componentes/Calendario"
-import Novedades from "./componentes/Novedades"
 
 function App() {
   return (
@@ -31,7 +30,6 @@ function App() {
         <Route path="/login" element={<InicioSesion />} />
         <Route path="/ubicacion" element={<Mapa />} />
         <Route path="/calendario" element={<Calendario />} />
-        <Route path="/Novedades" element={<Novedades />} />
       </Routes>
       <Footer />
     </Router>

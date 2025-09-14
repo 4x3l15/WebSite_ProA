@@ -16,10 +16,9 @@ function Navbar() {
       <span className="navbar-brand">Website PROA</span>
       <div className="nav-links">
         <Link to="/">Inicio</Link>
-        <Link to="/tareas">Tareas</Link>
+        <Link to="/tareas">Novedades</Link>
         <Link to="/ubicacion">Ubicación</Link>
         <Link to="/calendario">Calendario</Link>
-        <Link to="/novedades">Novedades</Link>
 
         {usuario ? (
           <button onClick={handleLogout} className="nav-links-btn">
