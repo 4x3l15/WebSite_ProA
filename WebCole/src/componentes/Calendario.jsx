@@ -53,13 +53,10 @@ function Calendario() {
       .catch((err) => console.error("Error cargando eventos:", err));
   }, []);
 
-  // 🔹 Guardar un nuevo evento en la base de datos
+  // 🔹 Guardar un nuevo evento
   async function addEvent() {
     if (!newEvent.trim() || !selectedDate) return;
-    const newEv = {
-      title: newEvent,
-      date: toKey(selectedDate),
-    };
+    const newEv = { title: newEvent, date: toKey(selectedDate) };
 
     try {
       const res = await fetch(API_URL, {
@@ -68,7 +65,7 @@ function Calendario() {
         body: JSON.stringify(newEv),
       });
       const saved = await res.json();
-      setEvents([...events, saved]); // Actualizar frontend con lo guardado
+      setEvents([...events, saved]);
       setNewEvent("");
       setSelectedDate(null);
     } catch (err) {
@@ -85,6 +82,7 @@ function Calendario() {
     () => buildMonthMatrix(cursor.getFullYear(), cursor.getMonth()),
     [cursor]
   );
+
   const monthName = cursor.toLocaleDateString("es-AR", {
     month: "long",
     year: "numeric",
@@ -93,148 +91,58 @@ function Calendario() {
   const weekDayNames = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
 
   return (
-    <div
-      style={{
-        padding: "20px",
-        maxWidth: "900px",
-        margin: "0 auto",
-        background: "#7793e1",
-        borderRadius: "10px",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginBottom: "10px",
-          alignItems: "center",
-        }}
-      >
-        <button
-          onClick={() => setCursor(addMonths(cursor, -1))}
-          style={{
-            background: "#b8c6ef",
-            color: "white",
-            border: "none",
-            padding: "5px 10px",
-            borderRadius: "5px",
-          }}
-        >
-          {"<"}
-        </button>
-        <h2 style={{ color: "#0c1839" }}>{monthName}</h2>
-        <button
-          onClick={() => setCursor(addMonths(cursor, 1))}
-          style={{
-            background: "#b8c6ef",
-            color: "white",
-            border: "none",
-            padding: "5px 10px",
-            borderRadius: "5px",
-          }}
-        >
-          {">"}
-        </button>
-      </div>
-
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(7, 1fr)",
-          border: "1px solid #ccc",
-        }}
-      >
-        {weekDayNames.map((d) => (
-          <div
-            key={d}
-            style={{
-              padding: "5px",
-              background: "#b8c6ef",
-              textAlign: "center",
-              fontWeight: "bold",
-              color: "#fff",
-            }}
-          >
-            {d}
-          </div>
-        ))}
-        {grid.flat().map((date, idx) => {
-          const inMonth = date.getMonth() === cursor.getMonth();
-          const isToday = isSameDay(date, new Date());
-          const isSelected = selectedDate && isSameDay(date, selectedDate);
-          const dayEvents = eventsOn(date);
-
-          return (
-            <div
-              key={idx}
-              style={{
-                minHeight: "100px",
-                padding: "5px",
-                border: "1px solid #eee",
-                background: isSelected
-                  ? "#b8c6efF"
-                  : isToday
-                  ? "#b8c6ef"
-                  : inMonth
-                  ? "white"
-                  : "#f9f9f9",
-                cursor: "pointer",
-                transition: "background 0.3s",
-              }}
-              onClick={() => setSelectedDate(date)}
-            >
-              <div style={{ fontWeight: isToday ? "bold" : "normal" }}>
-                {date.getDate()}
-              </div>
-              <ul style={{ fontSize: "12px", marginTop: "5px" }}>
-                {dayEvents.map((ev) => (
-                  <li key={ev._id}>{ev.title}</li>
-                ))}
-              </ul>
-            </div>
-          );
-        })}
-      </div>
-
-      {selectedDate && (
-        <div
-          style={{
-            marginTop: "20px",
-            border: "1px solid #ddd",
-            padding: "10px",
-            background: "#b8c6ef",
-            borderRadius: "8px",
-          }}
-        >
-          <h3 style={{ color: "#3176F5" }}>
-            Agregar evento para {selectedDate.toLocaleDateString()}
-          </h3>
-          <input
-            value={newEvent}
-            onChange={(e) => setNewEvent(e.target.value)}
-            placeholder="Título del evento"
-            style={{
-              padding: "8px",
-              borderRadius: "4px",
-              border: "1px solid #ccc",
-              marginRight: "10px",
-              width: "60%",
-            }}
-          />
-          <button
-            onClick={addEvent}
-            style={{
-              background: "#3176F5",
-              color: "white",
-              border: "none",
-              padding: "8px 12px",
-              borderRadius: "5px",
-            }}
-          >
-            Guardar
-          </button>
+    <div className="calendario-container">
+      <div className="calendario-card">
+        <div className="calendario-header">
+          <button onClick={() => setCursor(addMonths(cursor, -1))}>{"<"}</button>
+          <h2>{monthName}</h2>
+          <button onClick={() => setCursor(addMonths(cursor, 1))}>{">"}</button>
         </div>
-      )}
+
+        <div className="calendario-grid">
+          {weekDayNames.map((d) => (
+            <div key={d} className="calendario-dia-semana">
+              {d}
+            </div>
+          ))}
+          {grid.flat().map((date, idx) => {
+            const inMonth = date.getMonth() === cursor.getMonth();
+            const isToday = isSameDay(date, new Date());
+            const isSelected = selectedDate && isSameDay(date, selectedDate);
+            const dayEvents = eventsOn(date);
+
+            return (
+              <div
+                key={idx}
+                className={`calendario-dia 
+                  ${inMonth ? "" : "fuera-mes"} 
+                  ${isToday ? "hoy" : ""} 
+                  ${isSelected ? "seleccionado" : ""}`}
+                onClick={() => setSelectedDate(date)}
+              >
+                <div>{date.getDate()}</div>
+                <ul>
+                  {dayEvents.map((ev) => (
+                    <li key={ev._id}>{ev.title}</li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
+
+        {selectedDate && (
+          <div className="calendario-evento">
+            <h3>Agregar evento para {selectedDate.toLocaleDateString()}</h3>
+            <input
+              value={newEvent}
+              onChange={(e) => setNewEvent(e.target.value)}
+              placeholder="Título del evento"
+            />
+            <button onClick={addEvent}>Guardar</button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
