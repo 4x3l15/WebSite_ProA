@@ -15,8 +15,8 @@ function InicioSesion() {
     e.preventDefault();
     setError("");
 
-    if (!username.endsWith("@gmail.com")) {
-      setError("Solo puedes usar una cuenta de Gmail.");
+    if (!username.endsWith("@escuelasproa.edu.ar")) {
+      setError("Solo puedes usar una cuenta institucional.");
       return;
     }
 
@@ -77,7 +77,7 @@ function InicioSesion() {
         <form onSubmit={handleSubmit}>
           <input
             type="email"
-            placeholder="Correo (solo Gmail)"
+            placeholder="Correo (mail institucional)"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
