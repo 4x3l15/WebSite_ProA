@@ -1,45 +1,76 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { UserContext } from "../context/UserContext"; // 👈 importamos el contexto
 
 function Tareas() {
+  const { usuario } = useContext(UserContext); // obtenemos el usuario logeado
   const [items, setItems] = useState([]);
   const [nombre, setNombre] = useState("");
   const [descripcion, setDescripcion] = useState("");
 
+  const token = localStorage.getItem("token"); // token guardado al iniciar sesión
+
+  // Cargar todas las tareas
   useEffect(() => {
     fetch("http://localhost:5000/api/items")
       .then((res) => res.json())
-      .then((data) => setItems(data));
+      .then((data) => setItems(data))
+      .catch((err) => console.error("Error cargando comentarios:", err));
   }, []);
 
   const agregarItem = async () => {
-    await fetch("http://localhost:5000/api/items", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nombre, descripcion }),
-    });
-    setNombre("");
-    setDescripcion("");
-    // Actualizar lista
-    const nuevaLista = await fetch("http://localhost:5000/api/items").then(res => res.json());
-    setItems(nuevaLista);
+    if (!usuario) {
+      alert("Debes iniciar sesión para agregar comentarios.");
+      return;
+    }
+
+    if (!nombre.trim() || !descripcion.trim()) return;
+
+    try {
+      await fetch("http://localhost:5000/api/items", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-auth-token": token, // enviamos token para autenticar
+        },
+        body: JSON.stringify({ nombre, descripcion }),
+      });
+
+      setNombre("");
+      setDescripcion("");
+
+      // actualizar lista
+      const nuevaLista = await fetch("http://localhost:5000/api/items").then(
+        (res) => res.json()
+      );
+      setItems(nuevaLista);
+    } catch (err) {
+      console.error("Error agregando comentario:", err);
+    }
   };
 
   return (
     <div className="main-content">
-      <h2>Lista de Ítems</h2>
-      <input
-        type="text"
-        placeholder="Nombre"
-        value={nombre}
-        onChange={(e) => setNombre(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Descripción"
-        value={descripcion}
-        onChange={(e) => setDescripcion(e.target.value)}
-      />
-      <button onClick={agregarItem}>Agregar</button>
+      <h2>Aca puedes ver los comentarios y novedades del cole</h2>
+
+      {usuario ? (
+        <>
+          <input
+            type="text"
+            placeholder="Nombre"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Descripción"
+            value={descripcion}
+            onChange={(e) => setDescripcion(e.target.value)}
+          />
+          <button onClick={agregarItem}>Agregar comentario</button>
+        </>
+      ) : (
+        <p>Debes iniciar sesión para agregar comentarios.</p>
+      )}
 
       <ul>
         {items.map((item) => (
@@ -53,3 +84,4 @@ function Tareas() {
 }
 
 export default Tareas;
+

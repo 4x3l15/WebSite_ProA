@@ -60,8 +60,8 @@
   border-radius: 1rem;
   width: 90%;
   max-width: 700px;
-  max-height: 80vh; /* 👈 límite de altura */
-  overflow-y: auto; /* 👈 scroll interno */
+  max-height: 80vh;
+  overflow-y: auto;
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
   text-align: left;
   animation: fadeIn 0.3s ease-in-out;
@@ -102,22 +102,45 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-
 /* ================= NAVBAR ================= */
 .navbar-custom {
-  background-color: #1e3a8a;
-  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: #1e3a8a;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-brand {
-  color: white;
+  font-size: 1.6rem;
   font-weight: bold;
-  font-size: 1.5rem;
   text-decoration: none;
+  color: #fff;
+  cursor: default;
 }
 
-.navbar-brand:hover {
-  color: #93c5fd;
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  padding: 8px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* ================= JUMBOTRON ================= */
@@ -166,7 +189,7 @@
   background: #ffffff;
   padding: 40px 20px;
   min-height: 100vh;
-  flex: 1; /* 👈 para que empuje el footer al final */
+  flex: 1;
 }
 
 .main-inner {
@@ -185,7 +208,6 @@
 }
 
 /* ================= FOOTER ================= */
-/* FOOTER */
 .footer {
   background: #1e3a8a;
   color: white;
@@ -197,266 +219,194 @@
   left: 0;
 }
 
-
-/* Navbar contenedor */
-.navbar-custom {
-  display: flex;
-  justify-content: space-between; /* logo a la izquierda, links a la derecha */
-  align-items: center;
-  padding: 15px 30px;
-  background: #1e3a8a;
-  color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Estilo del título (NO botón) */
-.navbar-brand {
-  font-size: 1.6rem;
-  font-weight: bold;
-  text-decoration: none;
-  color: #fff;
-  cursor: default; /* no parece clickeable */
-}
-
-/* Contenedor de los botones */
-.nav-links {
-  display: flex;
-  gap: 15px; /* separación entre botones */
-}
-
-/* Estilo de botones */
-.nav-links a {
-  padding: 8px 18px;
-  border-radius: 20px;
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Hover animado */
-.nav-links a:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-/* Sección del mapa */
+/* ================= MAPA ================= */
 .mapa-section {
-  background: #93c5fd; /* color de fondo */
+  background: #93c5fd;
   padding: 50px 0;
 }
 
-/* Contenedor del título */
 .mapa-section h1 {
   font-size: 3rem;
   font-weight: bold;
-  color: #1e3a8a; /* azul oscuro para contraste */
+  color: #1e3a8a;
   margin-bottom: 1rem;
   text-align: center;
 }
 
-/* Ajustes del iframe */
 .mapa-iframe {
   border: 0;
   border-radius: 12px;
   width: 100%;
-  height: 500px; /* altura fija para que se vea bien */
+  height: 500px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* === Login Page === */
-.login-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #3176F5, #1e3a8a);
-  font-family: Arial, sans-serif;
-}
-
-.login-box {
-  background: #ffffff;
-  padding: 30px 40px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  text-align: center;
-  width: 100%;
-  max-width: 400px;
-  animation: fadeIn 0.6s ease-in-out;
-}
-
-.login-box h2 {
-  margin-bottom: 20px;
-  color: #1e3a8a;
-  font-size: 24px;
-}
-
-.login-input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  outline: none;
-  transition: border 0.3s;
-}
-
-.login-input:focus {
-  border-color: #3176F5;
-}
-
-.login-btn {
-  width: 100%;
-  background: #3176F5;
-  color: white;
-  border: none;
-  padding: 12px;
-  margin-top: 10px;
-  font-size: 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.login-btn:hover {
-  background: #1e3a8a;
-}
-
-/* Link para cambiar entre login/registro */
-.login-box p {
-  font-size: 14px;
-  color: #1e3a8a;
-}
-
-.login-box p:hover {
-  text-decoration: underline;
-}
-
-/* Animación de entrada */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* App.css */
-
-/* Sección de tareas */
+/* ================= TAREAS ================= */
 .tareas-container {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 30px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .tareas-header {
   color: #3176F5;
-  margin-bottom: 20px;
+  font-size: 24px;
+  margin-bottom: 25px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .tareas-inputs {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 25px;
 }
 
 .tareas-inputs input {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.tareas-inputs input:focus {
+  border-color: #3176F5;
+  box-shadow: 0 0 6px rgba(49, 118, 245, 0.4);
 }
 
 .tareas-inputs button {
   background: #3176F5;
   color: #fff;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 12px 25px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .tareas-inputs button:hover {
   background: #1e3a8a;
+  transform: scale(1.05);
+}
+
+.tareas-list {
+  list-style: none;
+  padding: 0;
 }
 
 .tareas-list li {
-  padding: 10px;
-  background: #f1f1f1;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.novedades-container {
-  padding: 20px;
-  max-width: 600px;
-  margin: auto;
-}
-
-.comentarios-lista {
-  margin-bottom: 20px;
-}
-
-.comentario {
-  background: #f7f7f7;
-  padding: 10px;
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: #ffffff;
   border-radius: 8px;
-  position: relative;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-size: 16px;
 }
 
-.comentario strong {
-  color: #1e88e5;
-}
-
-.comentario small {
-  display: block;
-  font-size: 0.8em;
-  color: #666;
-}
-
-.btn-eliminar {
-  background: #f44336;
+.tareas-list li button {
+  background: #e53935;
   color: white;
   border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 6px;
+  padding: 6px 12px;
   cursor: pointer;
-  position: absolute;
-  right: 10px;
-  top: 10px;
+  font-size: 14px;
+  transition: background 0.2s;
 }
 
-.btn-eliminar:hover {
-  background: #d32f2f;
+.tareas-list li button:hover {
+  background: #b71c1c;
 }
 
-.comentario-form textarea {
+/* ================= LOGIN CARD ================= */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #BEE3F8; /* celeste claro */
+  padding: 20px;
+}
+
+.login-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  max-width: 400px;
   width: 100%;
-  height: 80px;
-  margin-bottom: 10px;
-  padding: 8px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+}
+
+.login-card h2 {
+  color: #1e3a8a;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-card input {
+  padding: 14px;
+  border-radius: 12px;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s;
 }
 
-.comentario-form button {
-  background: #42a5f5;
-  color: white;
+.login-card input:focus {
+  border-color: #3176F5;
+  box-shadow: 0 0 10px rgba(49,118,245,0.4);
+}
+
+.login-card button {
+  padding: 14px;
+  border-radius: 25px;
   border: none;
-  padding: 8px 15px;
-  border-radius: 6px;
+  background: #3176F5;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
+  transition: all 0.3s;
 }
 
-.comentario-form button:hover {
-  background: #1e88e5;
+.login-card button:hover {
+  background: #1e3a8a;
+  transform: scale(1.05);
+}
+
+.switch-btn {
+  margin-top: 15px;
+  background: transparent;
+  color: #3176F5;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  text-decoration: underline;
+}
+
+.switch-btn:hover {
+  color: #1e3a8a;
 }

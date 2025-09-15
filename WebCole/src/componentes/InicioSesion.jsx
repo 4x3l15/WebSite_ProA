@@ -15,7 +15,6 @@ function InicioSesion() {
     e.preventDefault();
     setError("");
 
-    // 👇 validamos que sea un Gmail
     if (!username.endsWith("@gmail.com")) {
       setError("Solo puedes usar una cuenta de Gmail.");
       return;
@@ -34,9 +33,9 @@ function InicioSesion() {
 
       if (res.ok) {
         if (!modoRegistro) {
-          setUsuario(data.username); // Guarda el usuario en el contexto
-          localStorage.setItem("token", data.token); // 👈 Guardamos el token
-          navigate("/"); // Redirige al inicio
+          setUsuario(data.username);
+          localStorage.setItem("token", data.token);
+          navigate("/");
         } else {
           alert("Cuenta creada. Ahora inicia sesión.");
           setModoRegistro(false);
@@ -52,52 +51,56 @@ function InicioSesion() {
   };
 
   const handleLogout = () => {
-    setUsuario(null); // 👈 borramos el usuario del contexto
-    localStorage.removeItem("token"); // 👈 borramos el token al cerrar sesión
-    navigate("/iniciosesion"); // volvemos al login
+    setUsuario(null);
+    localStorage.removeItem("token");
+    navigate("/iniciosesion");
   };
 
   // 👇 Si ya hay usuario logueado, mostramos el botón de cerrar sesión
   if (usuario) {
     return (
       <div className="login-container">
-        <h2>Bienvenido, {usuario}</h2>
-        <button onClick={handleLogout} className="switch-btn">
-          Cerrar sesión
-        </button>
+        <div className="login-card">
+          <h2>Bienvenido, {usuario}</h2>
+          <button onClick={handleLogout} className="switch-btn">
+            Cerrar sesión
+          </button>
+        </div>
       </div>
     );
   }
 
   return (
     <div className="login-container">
-      <h2>{modoRegistro ? "Crear cuenta" : "Iniciar sesión"}</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Correo (solo Gmail)"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">
-          {modoRegistro ? "Registrarse" : "Ingresar"}
+      <div className="login-card">
+        <h2>{modoRegistro ? "Crear cuenta" : "Iniciar sesión"}</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="Correo (solo Gmail)"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Contraseña"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit">
+            {modoRegistro ? "Registrarse" : "Ingresar"}
+          </button>
+        </form>
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        <button
+          onClick={() => setModoRegistro(!modoRegistro)}
+          className="switch-btn"
+        >
+          {modoRegistro ? "Ya tengo cuenta" : "Crear una cuenta"}
         </button>
-      </form>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <button
-        onClick={() => setModoRegistro(!modoRegistro)}
-        className="switch-btn"
-      >
-        {modoRegistro ? "Ya tengo cuenta" : "Crear una cuenta"}
-      </button>
+      </div>
     </div>
   );
 }
