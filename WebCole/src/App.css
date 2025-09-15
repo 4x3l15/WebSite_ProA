@@ -410,3 +410,126 @@
 .switch-btn:hover {
   color: #1e3a8a;
 }
+
+/* ================= CALENDARIO ================= */
+.calendario-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: #bee3f8; /* celeste claro */
+  min-height: 100vh;
+  margin-bottom: 80px; /* 🔹 espacio inferior para separar del footer */
+}
+
+.calendario-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  max-width: 900px;
+  width: 100%;
+}
+
+.calendario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.calendario-header h2 {
+  color: #1e3a8a;
+  font-weight: bold;
+}
+
+.calendario-header button {
+  background: #3176f5;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.calendario-header button:hover {
+  background: #1e3a8a;
+}
+
+.calendario-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border: 1px solid #ccc;
+}
+
+.calendario-dia-semana {
+  padding: 8px;
+  background: #3176f5;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+}
+
+.calendario-dia {
+  min-height: 100px;
+  padding: 5px;
+  border: 1px solid #eee;
+  background: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.calendario-dia:hover {
+  background: #e0e7ff;
+}
+.calendario-dia ul {
+  font-size: 12px;
+  margin-top: 5px;
+  padding-left: 15px;
+}
+
+.calendario-dia.fuera-mes {
+  background: #f5f5f5;
+  color: #aaa;
+}
+.calendario-dia.hoy {
+  background: #93c5fd;
+  font-weight: bold;
+}
+.calendario-dia.seleccionado {
+  background: #3176f5;
+  color: white;
+  font-weight: bold;
+}
+
+.calendario-evento {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  background: #f0f8ff;
+  border-radius: 10px;
+}
+
+.calendario-evento h3 {
+  color: #3176f5;
+  margin-bottom: 10px;
+}
+
+.calendario-evento input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  width: 60%;
+}
+
+.calendario-evento button {
+  background: #3176f5;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.calendario-evento button:hover {
+  background: #1e3a8a;
+}
