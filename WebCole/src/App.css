@@ -9,6 +9,26 @@ body, html {
   flex-direction: column;
 }
 
+/* ================= BOTÓN CERRAR SESIÓN ================= */
+.btn-cerrar {
+  padding: 8px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn-cerrar:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
 /* ================= TAREAS ================= */
 .tareas-container {
   max-width: 900px;

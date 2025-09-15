@@ -21,7 +21,7 @@ function Navbar() {
         <Link to="/calendario">Calendario</Link>
 
         {usuario ? (
-          <button onClick={handleLogout} className="nav-links-btn">
+          <button onClick={handleLogout} className="nav-links-btn btn-cerrar">
             Cerrar sesión
           </button>
         ) : (
