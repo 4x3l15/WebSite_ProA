@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { UserContext } from "../context/UserContext"; // 👈 importamos el contexto
+import { UserContext } from "../context/UserContext"; // importamos el contexto
 
 function Tareas() {
   const { usuario } = useContext(UserContext); // obtenemos el usuario logeado
@@ -49,11 +49,13 @@ function Tareas() {
   };
 
   return (
-    <div className="main-content">
-      <h2>Aca puedes ver los comentarios y novedades del cole</h2>
+    <section className="tareas-container">
+      <h2 className="tareas-header">
+        Comentarios y novedades del colegio
+      </h2>
 
       {usuario ? (
-        <>
+        <div className="tareas-inputs">
           <input
             type="text"
             placeholder="Nombre"
@@ -67,21 +69,20 @@ function Tareas() {
             onChange={(e) => setDescripcion(e.target.value)}
           />
           <button onClick={agregarItem}>Agregar comentario</button>
-        </>
+        </div>
       ) : (
-        <p>Debes iniciar sesión para agregar comentarios.</p>
+        <p className="texto-secundario">Debes iniciar sesión para agregar comentarios.</p>
       )}
 
-      <ul>
+      <ul className="tareas-list">
         {items.map((item) => (
           <li key={item._id}>
-            {item.nombre} - {item.descripcion}
+            <strong>{item.nombre}</strong>: {item.descripcion}
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 }
 
 export default Tareas;
-

@@ -1,105 +1,235 @@
-/* Fondo de la sección */
-.info-fondo {
-  padding: 3rem 1rem;
-  background: linear-gradient(135deg, #bac8e6, #4332d6);
-  text-align: center;
-  min-height: 100vh;
+/* ================= GLOBAL ================= */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #BEE3F8; /* fondo celeste claro */
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Caja inicial */
-.info-caja {
-  background: #ffffffdd;
-  border-radius: 1rem;
-  padding: 2rem;
-  max-width: 600px;
-  margin: auto;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+/* ================= TAREAS ================= */
+.tareas-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px 25px;
+  background: #00a2ff; /* fondo celeste claro */
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Título */
-.info-titulo {
+.tareas-container h2 {
+  color: #1e3a8a;
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 1rem;
-  color: #333;
+  margin-bottom: 25px;
+  text-align: center;
 }
 
-/* Botón abrir */
-.info-boton {
-  background: #6200ea;
-  color: white;
+.tareas-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.tareas-inputs input {
+  padding: 14px 15px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.tareas-inputs input:focus {
+  border-color: #3176f5;
+  box-shadow: 0 0 10px rgba(49,118,245,0.3);
+}
+
+.tareas-inputs button {
+  background: #3176f5;
+  color: #fff;
   border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 2rem;
+  padding: 12px 20px;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.3s ease;
-}
-.info-boton:hover {
-  background: #3700b3;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background 0.3s, transform 0.2s;
+  max-width: 200px;
+  align-self: flex-start;
 }
 
-/* Overlay oscuro */
-.info-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
+.tareas-inputs button:hover {
+  background: #1e3a8a;
+  transform: scale(1.05);
+}
+
+.tareas-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.tareas-list li {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+  font-size: 16px;
+  color: #333;
+  transition: transform 0.2s;
+}
+
+.tareas-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tareas-list li span.nombre {
+  font-weight: bold;
+  color: #3176f5;
+  margin-bottom: 5px;
+}
+
+.tareas-list li span.descripcion {
+  color: #555;
+}
+
+/* ================= INFO ================= */
+.info-fondo {
+  padding: 3rem 1rem;
+  text-align: center;
+  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
 }
 
-/* Modal */
-.info-modal {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 1rem;
-  width: 90%;
-  max-width: 700px;
-  max-height: 80vh;
-  overflow-y: auto;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+.info-caja {
+  background: #ffffffdd;
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  max-width: 900px;
+  margin: 0 auto 150px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   text-align: left;
-  animation: fadeIn 0.3s ease-in-out;
+  font-weight: bold; /* texto en negrita */
 }
 
-/* Título modal */
-.info-modal-titulo {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #222;
-}
-
-/* Texto modal */
-.info-modal-texto {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #444;
+.info-titulo {
+  font-size: 2rem;
+  font-weight: bold;
   margin-bottom: 1.5rem;
+  color: #1e3a8a;
 }
 
-/* Botón cerrar */
-.info-boton-cerrar {
-  background: #e53935;
+.info-texto {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  font-weight: bold;
+}
+
+/* ================= JUMBOTRON ================= */
+.jumbotron {
+  position: relative;
+  background: linear-gradient(135deg, #1e3a8a, #3176f5);
   color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 2rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-.info-boton-cerrar:hover {
-  background: #b71c1c;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 20px;
+  margin: 40px 20px 150px;
+  padding: 60px 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
 }
 
-/* Animación entrada */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+.jumbotron-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.2);
+  border-radius: 20px;
+}
+
+.jumbotron-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  padding: 2rem;
+}
+
+.titulo-principal {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  animation: fadeInDown 1s ease;
+}
+
+.subtitulo {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1.2s ease;
+  line-height: 1.5;
+}
+
+.jumbotron-btn {
+  background-color: #3176f5;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-bottom: 30px;
+  display: inline-block;
+}
+
+.jumbotron-btn:hover {
+  background-color: #1e3a8a;
+  transform: scale(1.05);
+}
+
+/* ================= MAIN CONTENT ================= */
+.main-content {
+  background: #BEE3F8; /* fondo celeste claro */
+  padding: 20px;
+  min-height: calc(100vh - 80px);
+  flex: 1;
+}
+
+.main-box {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.saludo {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #1e3a8a;
+  font-weight: bold;
+}
+
+.texto-secundario {
+  color: #555;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background: #1e3a8a;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  margin-top: auto; /* siempre abajo */
 }
 
 /* ================= NAVBAR ================= */
@@ -110,7 +240,6 @@
   padding: 15px 30px;
   background: #1e3a8a;
   color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -143,85 +272,9 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* ================= JUMBOTRON ================= */
-.jumbotron {
-  background: #93c5fd;
-  padding: 3rem 1rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.jumbotron-container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-.jumbotron h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #3176f5;
-  margin-bottom: 1rem;
-}
-
-.jumbotron p {
-  font-size: 1.25rem;
-  color: #1e3a8a;
-  margin-bottom: 2rem;
-}
-
-.jumbotron-btn {
-  background-color: #3176f5;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  font-size: 1.25rem;
-  border-radius: 0.3rem;
-  text-decoration: none;
-  transition: background-color 0.3s;
-}
-
-.jumbotron-btn:hover {
-  background-color: #1e3a8a;
-}
-
-/* ================= MAIN CONTENT ================= */
-.main-content {
-  background: #ffffff;
-  padding: 40px 20px;
-  min-height: 100vh;
-  flex: 1;
-}
-
-.main-inner {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.main-inner h2 {
-  color: #3176f5;
-  margin-bottom: 10px;
-}
-
-.main-inner p {
-  color: #88c5f4;
-  margin-bottom: 30px;
-}
-
-/* ================= FOOTER ================= */
-.footer {
-  background: #1e3a8a;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-}
-
 /* ================= MAPA ================= */
 .mapa-section {
-  background: #93c5fd;
+  background: #BEE3F8; /* fondo celeste claro */
   padding: 50px 0;
 }
 
@@ -241,101 +294,13 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* ================= TAREAS ================= */
-.tareas-container {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 20px;
-  background: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.tareas-header {
-  color: #3176F5;
-  font-size: 24px;
-  margin-bottom: 25px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.tareas-inputs {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 25px;
-}
-
-.tareas-inputs input {
-  flex: 1;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-  outline: none;
-  transition: all 0.3s;
-}
-
-.tareas-inputs input:focus {
-  border-color: #3176F5;
-  box-shadow: 0 0 6px rgba(49, 118, 245, 0.4);
-}
-
-.tareas-inputs button {
-  background: #3176F5;
-  color: #fff;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 16px;
-  transition: background 0.3s, transform 0.2s;
-}
-
-.tareas-inputs button:hover {
-  background: #1e3a8a;
-  transform: scale(1.05);
-}
-
-.tareas-list {
-  list-style: none;
-  padding: 0;
-}
-
-.tareas-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 20px;
-  background: #ffffff;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  font-size: 16px;
-}
-
-.tareas-list li button {
-  background: #e53935;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 6px 12px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.2s;
-}
-
-.tareas-list li button:hover {
-  background: #b71c1c;
-}
-
 /* ================= LOGIN CARD ================= */
 .login-container {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #BEE3F8; /* celeste claro */
+  background: #BEE3F8;
   padding: 20px;
 }
 
@@ -417,9 +382,9 @@
   justify-content: center;
   align-items: center;
   padding: 40px 20px;
-  background: #bee3f8; /* celeste claro */
+  background: #BEE3F8; /* fondo celeste claro */
   min-height: 100vh;
-  margin-bottom: 80px; /* 🔹 espacio inferior para separar del footer */
+  margin-bottom: 80px;
 }
 
 .calendario-card {
@@ -452,6 +417,7 @@
   cursor: pointer;
   transition: background 0.2s;
 }
+
 .calendario-header button:hover {
   background: #1e3a8a;
 }
@@ -478,9 +444,11 @@
   cursor: pointer;
   transition: background 0.3s;
 }
+
 .calendario-dia:hover {
   background: #e0e7ff;
 }
+
 .calendario-dia ul {
   font-size: 12px;
   margin-top: 5px;
@@ -491,10 +459,12 @@
   background: #f5f5f5;
   color: #aaa;
 }
+
 .calendario-dia.hoy {
   background: #93c5fd;
   font-weight: bold;
 }
+
 .calendario-dia.seleccionado {
   background: #3176f5;
   color: white;
@@ -530,6 +500,7 @@
   border-radius: 6px;
   cursor: pointer;
 }
+
 .calendario-evento button:hover {
   background: #1e3a8a;
 }

@@ -13,7 +13,7 @@ function MainContent() {
         ) : (
           <p className="texto-secundario"></p>
         )}
-        <Jumbotron/>
+        <Jumbotron />
       </div>
     </main>
   );
